@@ -732,5 +732,69 @@ client.on("message", msg => {
 });
 
 
+
+const superagent = require('superagent')
+client.on('message' , async (message) => {
+    if (message.content.startsWith(prefix + 'cat')) {
+
+    
+    const {body} = await superagent
+  .get(`http://aws.random.cat/meow`);
+
+  const catembed = new Discord.RichEmbed()
+  .setColor("#7289DA")
+  .setTitle("Cat 🐱")
+  .setImage(body.file);
+    
+ message.channel.send(catembed);
+
+}
+}); 
+
+
+
+
+const superagent = require('superagent')
+client.on('message' , async (message) => {
+    if (message.content.startsWith(prefix + 'dog')) {
+
+    
+    const { body } = await superagent
+    .get('https://dog.ceo/api/breeds/image/random');
+    const embed = new Discord.RichEmbed()
+    .setColor(0x954D23)
+    .setTitle("Woof :dog2:")
+    .setImage(body.message)
+    message.channel.send({embed})
+    
+
+
+}
+}); 
+
+
+
+client.on('message', message => {
+     if (message.content === "made") {
+message.author.send("made" + `  **
+    ::  معلومات عن مطور البوت  ::
+    :tools:  المطور    :tools:
+    | Rosé |
+     :gem:  ~ سيرفر صاحب البوت ~ :gem: 
+    | Discord.JPEI |
+    |:heart: #شكرا لإطلاعك على هذه المعلومة#:heart: 
+**`);
+    }
+}); 
+
+
+
+
+
+
+
+
+
+
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+client.login("NDYwMjYxMzgyNTkyNTI4NDA0.DhCNIg.6NT_myCU0452-XbmlEwtVsfMVk8");
